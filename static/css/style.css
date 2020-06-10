@@ -1,0 +1,50 @@
+.h1 {
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+    font-size: 92px;
+    padding: 0px 20px;
+    text-align: left;
+    text-transform: uppercase;
+    text-rendering: optimizeLegibility;
+    
+    
+  }
+.h2 {
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+    font-size: 75px;
+    padding: 0px 20px;
+    text-align: center;
+    text-transform: uppercase;
+    text-rendering: optimizeLegibility;
+    
+    
+  }
+ 
+ 
+
+  body{
+	width: 90%; 
+    margin-left:auto; 
+    margin-right: auto; 
+   
+    background-image: url(imagenes/fondo2.jpg);
+    background-size: cover;
+       
+    
+}
+
+
+
+html { 
+    background-image: url(imagenes/fondo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        -o-background-size: cover;
+
+}
+
+
+
+
+  

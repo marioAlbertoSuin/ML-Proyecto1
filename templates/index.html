@@ -1,0 +1,89 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Proyecto-1</title>
+
+ 
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for("static", filename="css/style.css") }}" />
+</head>
+
+<body>
+    <h1>Aprendizaje de Máquina</h1>
+    <h2>Análisis de Sentimientos</h2>
+    <center>
+        <table>
+                <tr> <label>Cantidad Tweets:</label>
+                  <select  id="cant">
+                  
+                      <option value=1>1</option>
+                      <option value=5>5</option>
+                      <option value=10>10</option>
+                 
+                  </select></tr>
+            <tr>
+                <td><input type="button" id="boton" value="Generar Tweets"></td>
+                <td><input type="button" id="borrar" value="borrar"></td>
+            </tr>
+        </table>
+
+
+    </center>
+    <br>
+    <center>
+    <table id="Table" border="1" width="330px"  ;
+	margin: auto; >
+    <tr><td>Tweet</td><td>Jaccard</td><td>Coceno</td><td>Regrecion</td><tr>
+    </table>
+    </center>
+
+<script type="text/javascript">
+
+
+    $("#boton").click(function(){
+        
+               
+               
+                $.ajax({
+                url: '/ajax-data',
+                data:document.getElementById('cant').value,
+                type: 'POST',
+                
+                success: function (response) {
+                response = JSON.parse(response);
+                console.log(response)
+                count = Object.keys(response).length
+                
+                for (i = 0; i < count; i++){
+                
+                $("#Table").append('<tr>' + 
+                 	'<td align="center" style="dislay: none;">' + response[i]["tweet"] + '</td>'+
+                 	'<td align="center" style="dislay: none;">' +"negativo:"+ response[i]["jaccard"]["negativo"]+'<br>'+"  pocitivo :" + response[i]["jaccard"]["pocitivo"]+'</td>'+
+                 	'<td align="center" style="dislay: none;">' +"negativo:"+ response[i]["Coceno"]["negativo"]+'<br>'+" pocitivo :" + response[i]["Coceno"]["pocitivo"] + '</td>'+'</tr>');
+                }
+              
+                 
+                
+                
+                
+                }
+
+                
+            });
+
+
+        });
+
+    $("#borrar").click(function(){
+        Table.innerHTML = "";
+    })
+
+
+</script>
+
+</body>
+
+
+</html>
